@@ -3,6 +3,8 @@ const app = express();
 const port = 8000;
 //04//require layout
 const expressLayouts = require('express-ejs-layouts');
+//08//connecting mongoose database
+const db = require('./config/mongoose');
 const createApplication = require('express/lib/express');
 
 
