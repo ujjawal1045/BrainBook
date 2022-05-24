@@ -6,6 +6,9 @@ const expressLayouts = require('express-ejs-layouts');
 const createApplication = require('express/lib/express');
 
 
+//06//tell app to use static file 
+app.use(express.static('./assets'));
+
 //05//tell app to use layout
 app.use(expressLayouts);
 //01//use express router(connecting our index rout with main index.js)
