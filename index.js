@@ -8,6 +8,12 @@ const expressLayouts = require('express-ejs-layouts');
 //08//connecting mongoose database
 const db = require('./config/mongoose');
 const createApplication = require('express/lib/express');
+//11//using express for passport
+const session = require('express-session');
+//12//use for session cookie
+const passport = require('passport');
+const passportLocal = require('./config/passport-local-strategy');
+
 
 app.use(express.urlencoded());
 //10//setting up cookie parser
@@ -21,12 +27,30 @@ app.use(expressLayouts);
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
 
-//01//use express router(connecting our index rout with main index.js)
-app.use('/',require('./routes'));
+
 
 //03//setting up ejs as view engine
 app.set('view engine', 'ejs');
 app.set('views', './views');
+
+//13//using middleware which take sesion cookie and encrypt it
+app.use(session({
+    name: 'BrainBook',
+    //todo change the secret before deployment in production
+    secret: 'something',
+    saveUninitialized: false,
+    resave: false,
+    cookie: {
+        maxAge: (1000 * 60 * 160)
+    }
+}));
+
+//14//tell app to use passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+//01//use express router(connecting our index rout with main index.js)
+app.use('/',require('./routes'));
 
 
 app.listen(port, function(err) {
