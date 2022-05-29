@@ -19,6 +19,8 @@ module.exports.signUp = function(req, res) {
 
 //rendering signIn page
 module.exports.signIn = function(req, res) {
+    //using this to manage back button when login
+    res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
     if(req.isAuthenticated()) {
         return res.redirect('/users/profile');
     }
@@ -54,6 +56,14 @@ module.exports.create = function(req, res) {
 
 //creating session by signin
 module.exports.createSession = function(req, res) {
-    //TODO
+    
+    return res.redirect('/');
+}
+
+//destrou session'
+module.exports.destroySession = function(req, res) {
+    req.logout(function(err) {
+        if (err) {return(err);}
+    });
     return res.redirect('/');
 }
