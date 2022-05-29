@@ -49,6 +49,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(passport.setAuthenticatedUser);
+
 //01//use express router(connecting our index rout with main index.js)
 app.use('/',require('./routes'));
 
