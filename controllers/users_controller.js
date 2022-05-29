@@ -9,6 +9,9 @@ module.exports.profile = function(req,res) {
 
 //rendering signUp page
 module.exports.signUp = function(req, res) {
+    if(req.isAuthenticated()) {
+        return res.redirect('/users/profile');
+    }
     return res.render('user_sign_up', {
         title: 'BrainBook|| sign Up'
     });
@@ -16,6 +19,9 @@ module.exports.signUp = function(req, res) {
 
 //rendering signIn page
 module.exports.signIn = function(req, res) {
+    if(req.isAuthenticated()) {
+        return res.redirect('/users/profile');
+    }
     return res.render('user_sign_in', {
         title: 'BrainBook|| sign In'
     });
