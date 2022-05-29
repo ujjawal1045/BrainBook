@@ -14,6 +14,9 @@ const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 
+//15//using mongo-store to store session cookie even if we restart the server
+const MongoStore = require('connect-mongo');
+
 
 app.use(express.urlencoded());
 //10//setting up cookie parser
@@ -33,6 +36,7 @@ app.set('layout extractScripts', true);
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
+//mongostore is used to store session cookie  
 //13//using middleware which take sesion cookie and encrypt it
 app.use(session({
     name: 'BrainBook',
@@ -42,7 +46,16 @@ app.use(session({
     resave: false,
     cookie: {
         maxAge: (1000 * 60 * 160)
-    }
+    },
+    store:  MongoStore.create(
+        {
+            mongoUrl:'mongodb://localhost/brainbook_development',
+             autoRemove: 'disabled'
+        },
+        function(err){
+            console.log(err || 'connect mongo-db setup ok');
+        }
+    )
 }));
 
 //14//tell app to use passport
