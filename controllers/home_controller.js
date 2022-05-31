@@ -11,12 +11,12 @@ module.exports.home = function(req,res) {
     // });
 
 //populate user of each post
-    Post.find({}).populate('user').exec(function(err, posts){
-        return res.render('home', {
-            title: "firstpage",
-            posts: posts
-        });
-    })
+Post.find({}).populate('user').exec(function(err, posts){
+    return res.render('home', {
+        title: "firstpage",
+        posts: posts
+    });
+})
 
 
     
