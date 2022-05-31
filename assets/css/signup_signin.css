@@ -1,0 +1,65 @@
+/* design1 */
+body {
+  background: #000;
+  font-size: 18px; }
+
+form {
+  background: #000;
+  color: #00ff1a;
+  width: 600px;
+  margin: auto;
+  font-size: 18px;
+  padding: 10px 20px;
+  font-family: sans-serif;
+  border-right: 2px solid #00ff1a;
+  border-left: 2px solid #00ff1a;
+  user-select: none; }
+
+.inputs {
+  border-radius: 10px;
+  outline: none;
+  border: 2px solid black;
+  width: 80%;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  transition: all 1s ease; }
+
+.inputs:focus {
+  transform: scale(1.2); }
+
+.selectionbox {
+  border-radius: 10px;
+  outline: none;
+  padding: 5px; }
+
+.selectionbox:hover {
+  cursor: pointer; }
+
+.logo1 {
+  text-align: center;
+  border-right: 2px solid #00ff1a;
+  border-left: 2px solid #00ff1a; }
+
+.submitbtn {
+  width: 100%;
+  margin: 20px 0px;
+  background: #00ff1a; }
+
+.submitbtn:hover {
+  cursor: pointer; }
+
+.submitbtn:focus {
+  transform: scale(1); }
+
+.content {
+  text-align: center; }
+
+input[value="signUp"] {
+  color: black; }
+
+/* for signin submit */
+input[value="submit"] {
+  color: black; }
+
+/* design2 */
