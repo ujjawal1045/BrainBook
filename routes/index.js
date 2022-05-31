@@ -6,6 +6,7 @@ console.log('router loaded successfully');
 //02//to access home controller action in routes
 router.get('/',homeController.home);
 router.use('/users',require('./users'));
+router.use('/posts', require('./posts'));
 
 
 module.exports = router;
