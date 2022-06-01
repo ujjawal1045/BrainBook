@@ -1,47 +1,285 @@
+
 <h1>brainBook. <%= title %></h1>
 
-        <section id="feed-posts">
-                <h4>Posts</h4>
-               <% if(locals.user) { %>
-                        <form action="/posts/create" id="new-post-form" method="post">
-                                <textarea name="content" cols="30" rows="3"placeholder = "type here..."></textarea>
-                                <input type="submit" value="Post">
-                        </form>
-                <% } %>
+<section id="feed-posts">
+    <h4>Posts</h4>
+    <% if(locals.user) { %>
+            <form action="/posts/create" id="new-post-form" method="post">
+                    <textarea name="content" cols="30" rows="3"placeholder = "type here..."></textarea>
+                    <input type="submit" value="Post">
+            </form>
+    <% } %>
 
-                <div id="Posts-list-container">
-                        <ul>
-                                <% for (post of posts) { %>
-                                    <li>
-                                            <%= post.content %>
-                                            <br>
-                                            <small><%= post.user.name  %></small>
-                                            <div class="post-comments">
-                                                    <% if(locals.user) { %>
-                                                        <form action="/comments/create" method="post">
-                                                                <input type="text " name="content" placeholder="type here to add comment.." >
-                                                                <input type="hidden" name="post" value="<%= post._id %>">
-                                                                <input type="submit" value="Add Comment">
-                                                        </form>
-                                                        <% } %>
-
-                                                        <div class="post-comments-list">
-                                                                <ul id="post-comments-<%= post._id %>">
-                                                                        <% for (comment of post.comments) { %>
-                                                                          <p>
-                                                                                  <%= comment.content %>
-                                                                                  <br>
-                                                                                  <small>
-                                                                                          <%= comment.user.name %>
-                                                                                  </small>
-                                                                          </p>
-                                                                       <% } %>
-
-                                                                </ul>
-                                                        </div>
-                                            </div>
-                                    </li>
+    <div id="Posts-list-container">
+            <ul>
+                <% for (post of posts) { %>
+                    <li>
+                        <%= post.content %>
+                        <br>
+                        <small><%= post.user.name  %></small>
+                        <div class="post-comments">
+                            <% if(locals.user) { %>
+                                <form action="/comments/create" method="post">
+                                        <input type="text " name="content" placeholder="type here to add comment.." >
+                                        <input type="hidden" name="post" value="<%= post._id %>">
+                                        <input type="submit" value="Add Comment">
+                                </form>
                                 <% } %>
-                        </ul>
+
+                                <div class="post-comments-list">
+                                        <ul id="post-comments-<%= post._id %>">
+                                        <% for (comment of post.comments) { %>
+                                            <p>
+                                            <%= comment.content %>
+                                            <br>
+                                            <small>
+                                                    <%= comment.user.name %>
+                                            </small>
+                                            </p>
+                                        <% } %>
+
+                                        </ul>
+                                </div>
+                        </div>
+                    </li>
+                <% } %>
+            </ul>
+    </div>
+</section>
+
+
+
+ <!-- our bettterview        -->
+ <div class="container">
+<!-- right side of view having some important link -->
+        <div class="left-panel">
+                <ul>
+                    <li>
+                        <span class="profile"></span>
+                        <p>Aashish Panthi</p>
+                    </li>
+                    <li>
+                        <i class="fa fa-user-friends"></i>
+                        <p>Friends</p>
+                    </li>
+                    <li>
+                        <i class="fa fa-play-circle"></i>
+                        <p>Videos</p>
+                    </li>
+                    <li>
+                        <i class="fa fa-flag"></i>
+                        <p>Pages</p>
+                    </li>
+                    <li>
+                        <i class="fa fa-users"></i>
+                        <p>Groups</p>
+                    </li>
+                    <li>
+                        <i class="fa fa-bookmark"></i>
+                        <p>Bookmark</p>
+                    </li>
+                    <li>
+                        <i class="fab fa-facebook-messenger"></i>
+                        <p>Inbox</p>
+                    </li>
+                    <li>
+                        <i class="fas fa-calendar-week"></i>
+                        <p>Events</p>
+                    </li>
+                    <li>
+                        <i class="fa fa-bullhorn"></i>
+                        <p>Ads</p>
+                    </li>
+                    <li>
+                        <i class="fas fa-hands-helping"></i>
+                        <p>Offers</p>
+                    </li>
+                    <li>
+                        <i class="fas fa-briefcase"></i>
+                        <p>Jobs</p>
+                    </li>
+                    <li>
+                        <i class="fa fa-star"></i>
+                        <p>Favourites</p>
+                    </li>
+                </ul>
+    
+                <div class="footer-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Advance</a>
+                    <a href="#">More</a>
                 </div>
-        </section>
+            </div>
+
+
+            <!-- middle part having psot and create post -->
+            <div class="middle-panel">
+             <div class="post create">
+              <% if(locals.user) { %>
+                <div class="post-top">
+                    <div class="dp">
+                        <img src="ujjawal.jpeg" alt="">
+                    </div>
+                    <form action="/posts/create" id="new-post-form" method="post">
+                        <input name="content" placeholder = "What's on your mind, <%= locals.user.name %> ?">
+                        <input type="submit" value="Post">
+                </form>
+                </div>
+                
+                <div class="post-bottom">
+                    <div class="action">
+                        <i class="fa fa-video"></i>
+                        <span>Live video</span>
+                    </div>
+                    <div class="action">
+                        <i class="fa fa-image"></i>
+                        <span>Photo/Video</span>
+                    </div>
+                    <div class="action">
+                        <i class="fa fa-smile"></i>
+                        <span>Feeling/Activity</span>
+                    </div>
+                </div>
+            <% } %>
+            </div>
+            
+   <!-- posts part -->
+        <div class="post">
+            <ul>
+                <% for (post of posts) { %>  
+                    <li>
+                        <div class="post-top">
+                            <div class="dp">
+                                <img src="./images/girl.jpg" alt="">
+                            </div>
+                            <div class="post-info">
+                                <p class="name"><%= post.user.name  %></p>
+                                <span class="time"><%= post.user.createdAt  %></span>
+                            </div>
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+
+                        <!-- post content -->
+                        <div class="post-content">
+                            <%= post.content %>
+                        </div>
+
+                        <!-- post bottom -->
+                        <div class="post-bottom">
+                            <div class="action">
+                                <i class="far fa-thumbs-up"></i>
+                                <span>Like</span>
+                            </div>
+                            <div class="action">
+                                <i class="far fa-comment"></i>
+                                <span>Comment</span>
+                                <% if(locals.user) { %>
+                                    <form action="/comments/create" method="post">
+                                            <input type="text " name="content" placeholder="type here to add comment.." >
+                                            <input type="hidden" name="post" value="<%= post._id %>">
+                                            <input type="submit" value="Add Comment">
+                                    </form>
+                                    <% } %>
+
+                                    <div class="post-comments-list">
+                                        <ul id="post-comments-<%= post._id %>">
+                                        <% for (comment of post.comments) { %>
+                                            <p>
+                                            <%= comment.content %>
+                                            <br>
+                                            <small>
+                                                    <%= comment.user.name %>
+                                            </small>
+                                            </p>
+                                        <% } %>
+
+                                        </ul>
+                                </div>
+                            </div>
+                            <div class="action">
+                                <i class="fa fa-share"></i>
+                                <span>Share</span>
+                            </div>
+                        </div>
+
+                    </li>
+                <% } %>
+            </ul>   
+        </div>
+    </div>
+
+
+        <!-- right panel -->
+        <div class="right-panel">
+            <div class="pages-section">
+                <h4>Your pages</h4>
+                <a class='page' href="#">
+                    <div class="dp">
+                        <img src="./images/logo.png" alt="">
+                    </div>
+                    <p class="name">Cody</p>
+                </a>
+
+                <a class='page' href="#">
+                    <div class="dp">
+                        <img src="./images/dp.jpg" alt="">
+                    </div>
+                    <p class="name">Cody Tutorials</p>
+                </a>
+            </div>
+
+            <div class="friends-section">
+                <h4>Friends</h4>
+                <a class='friend' href="#">
+                    <div class="dp">
+                        <img src="./images/dp.jpg" alt="">
+                    </div>
+                    <p class="name">Henry Mosely</p>
+                </a>
+
+                <a class='friend' href="#">
+                    <div class="dp">
+                        <img src="./images/shoes.jpg" alt="">
+                    </div>
+                    <p class="name">George</p>
+                </a>
+
+                <a class="friend" href="#">
+                    <div class="dp">
+                        <img src="./images/boy.jpg" alt="">
+                    </div>
+                    <p class="name">Aakash Malhotra</p>
+                </a>
+
+                <a class="friend" href="#">
+                    <div class="dp">
+                        <img src="./images/model.jpg" alt="">
+                    </div>
+                    <p class="name">Ragini Khanna</p>
+                </a>
+
+                <a class="friend" href="#">
+                    <div class="dp">
+                        <img src="./images/boy.jpg" alt="">
+                    </div>
+                    <p class="name">Justin Bieber</p>
+                </a>
+
+                <a class="friend" href="#">
+                    <div class="dp">
+                        <img src="./images/dp.jpg" alt="">
+                    </div>
+                    <p class="name">Ramesh GC</p>
+                </a>
+
+                <a class="friend" href="#">
+                    <div class="dp">
+                        <img src="./images/model.jpg" alt="">
+                    </div>
+                    <p class="name">Sajita Gurung</p>
+                </a>
+                
+            </div>
+        </div>
+ </div>
