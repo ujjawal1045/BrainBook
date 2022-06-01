@@ -21,7 +21,7 @@ Post.find({})
 })
 .exec(function(err, posts){
     return res.render('home', {
-        title: "Codeial | Home",
+        title: "BrainBook | Home",
         posts:  posts
     });
 })
