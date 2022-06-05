@@ -296,6 +296,7 @@ nav .nav-right a > i {
 .right-panel .pages-section .page,
 .right-panel .friends-section .friend {
   display: flex;
+  flex-direction: column;
   align-items: center;
   text-decoration: none;
   transition: .3s ease-in-out;

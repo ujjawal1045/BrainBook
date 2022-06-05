@@ -29,10 +29,7 @@ Post.find({})
             all_users: users
         });
     });
-    // return res.render('home', {
-    //     title: "BrainBook | Home",
-    //     posts:  posts
-    // });
+    
 })
 
 }

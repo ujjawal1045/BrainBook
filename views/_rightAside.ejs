@@ -17,53 +17,14 @@
 
 <div class="friends-section">
     <h4>Friends</h4>
-    <a class='friend' href="#">
+
         <div class="dp">
             <img src="./images/dp.jpg" alt="">
         </div>
-        <p class="name">Shivam Mishra</p>
+        <% for (u of all_users) {%>
+            <a class='friend ' href="/users/profile/<%= u.id %>">
+        <p class="name"> <%= u.name %>  </p> 
     </a>
-
-    <a class='friend' href="#">
-        <div class="dp">
-            <img src="./images/shoes.jpg" alt="">
-        </div>
-        <p class="name">Sandeep Swain</p>
-    </a>
-
-    <a class="friend" href="#">
-        <div class="dp">
-            <img src="./images/boy.jpg" alt="">
-        </div>
-        <p class="name">Vaishali</p>
-    </a>
-
-    <a class="friend" href="#">
-        <div class="dp">
-            <img src="./images/model.jpg" alt="">
-        </div>
-        <p class="name">Chandrika Papneja</p>
-    </a>
-
-    <a class="friend" href="#">
-        <div class="dp">
-            <img src="" alt="">
-        </div>
-        <p class="name">Khusi singh</p>
-    </a>
-
-    <a class="friend" href="#">
-        <div class="dp">
-            <img src="" alt="">
-        </div>
-        <p class="name">Anmol Raj singh</p>
-    </a>
-
-    <a class="friend" href="#">
-        <div class="dp">
-            <img src="" alt="">
-        </div>
-        <p class="name">Sushant Mishra</p>
-    </a>
-    
+        
+        <% } %>
 </div>
