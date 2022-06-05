@@ -1,0 +1,24 @@
+<div class="post-top">
+    <div class="dp">
+        <img src="ujjawal.jpeg" alt="">
+    </div>
+    <form action="/posts/create" id="new-post-form" method="post">
+        <input name="content" placeholder = "What's on your mind, <%= locals.user.name %> ?">
+        <input type="submit" value="Post">
+</form>
+</div>
+
+<div class="post-bottom">
+    <div class="action">
+        <i class="fa fa-video"></i>
+        <span>Live video</span>
+    </div>
+    <div class="action">
+        <i class="fa fa-image"></i>
+        <span>Photo/Video</span>
+    </div>
+    <div class="action">
+        <i class="fa fa-smile"></i>
+        <span>Feeling/Activity</span>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<li>
+    <div class="post-top">
+       <div class="dp">
+           <img src="./images/girl.jpg" alt="">
+       </div>
+       <div class="post-info">
+           <p class="name"><%= post.user.name  %></p>
+           <span class="time"><%= post.user.createdAt  %></span>
+       </div>
+       <i class="fas fa-ellipsis-h"></i>
+   </div> 
+
+    <!-- post content -->
+   <div class="post-content">
+       <%= post.content %>
+   </div>
+
+   <!-- post bottom  -->
+   <div class="post-bottom">
+       <div class="action">
+           <i class="far fa-thumbs-up"></i>
+           <span>Like</span>
+       </div>
+       <div class="action">
+           <i class="far fa-comment"></i>
+           <span>Comment</span>
+           <% if(locals.user) { %>
+               <form action="/comments/create" method="post">
+                       <input type="text " name="content" placeholder="type here to add comment.." >
+                       <input type="hidden" name="post" value="<%= post._id %>">
+                       <input type="submit" value="Add Comment">
+               </form>
+               <% } %>
+
+               <div class="post-comments-list">
+                   <ul id="post-comments-<%= post._id %>">
+                   <% for (comment of post.comments) { %>
+                    <%- include('_comment') -%>
+                       
+                   <% } %>
+
+                   </ul>
+           </div>
+       </div>
+       <div class="action">
+           <i class="fa fa-share"></i>
+           <span>Share</span>
+       </div>
+   </div>
+
+</li>
