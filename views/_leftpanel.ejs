@@ -1,8 +1,13 @@
 <ul>
-    <li>
-        <span class="profile"></span>
-        <p>Ujjawal Singh</p>
-    </li>
+    <% if (locals.user) { %>
+        <li> 
+            <span class="profile"></span>
+                <a href="/users/profile/<%= user.id %>" id="proname">
+                     <p><%= user.name %></p>
+                  </a>
+        </li>
+        <% } %>
+    
     <li>
         <i class="fa fa-user-friends"></i>
         <p>Friends</p>
