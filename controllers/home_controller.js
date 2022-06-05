@@ -1,4 +1,6 @@
  const Post = require('../models/post');
+const User = require('../models/user');
+ const user = require('../models/user');
  module.exports.home = function(req,res) {
 //     //return res.end('<h1>Express i s up for BrainBook!</h1>');
 //     // console.log(req.cookies);
@@ -20,10 +22,17 @@ Post.find({})
     }
 })
 .exec(function(err, posts){
-    return res.render('home', {
-        title: "BrainBook | Home",
-        posts:  posts
+    User.find({}, function(err, users){
+        return res.render('home', {
+            title: "BrainBook | Home",
+            posts:  posts,
+            all_users: users
+        });
     });
+    // return res.render('home', {
+    //     title: "BrainBook | Home",
+    //     posts:  posts
+    // });
 })
 
 }
