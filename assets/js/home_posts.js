@@ -32,8 +32,8 @@ let newPostDom = function(post){
                     <img src="./images/girl.jpg" alt="">
                 </div>
                 <div class="post-info">
-                    <p class="name">${post.user.name}</p>
-                    <span class="time">${post.user.createdAt}</span>
+                    <p class="name"> ${ post.user.name} </p>
+                    <span class="time"> ${ post.user.createdAt } </span>
                 </div>
                 <i class="fas fa-ellipsis-h"></i>
             </div> 
