@@ -85,24 +85,24 @@
 
 
             <!-- middle part having psot and create post -->
-            <div class="middle-panel">
-             <div class="post create">
-              <% if(locals.user) { %>
-                <%- include('_middlePanel') -%>
-                
-            <% } %>
-            </div>
-            
-   <!-- posts part -->
-        <div class="post">
-            <ul>
-                <% for (post of posts) { %>  
-                    <!-- including post part -->
-                    <%- include('_post') -%>
+        <div class="middle-panel" >
+                <div class="post create">
+                <% if(locals.user) { %>
+                    <%- include('_middlePanel') -%>
+                    
                 <% } %>
-            </ul>   
+                </div>
+            
+                <!-- posts part -->
+                <div class="post">
+                    <ul>
+                        <% for (post of posts) { %>  
+                            <!-- including post part -->
+                            <%- include('_post') -%>
+                        <% } %>
+                    </ul>   
+                </div>
         </div>
-    </div>
 
 
         <!-- right panel -->

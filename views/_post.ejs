@@ -1,4 +1,4 @@
-<li>
+<li id="post-<%= post._id %>">
     <div class="post-top">
        <div class="dp">
            <img src="./images/girl.jpg" alt="">
@@ -14,7 +14,7 @@
    <div class="post-content">
     <% if((locals.user) && (locals.user.id == post.user.id) ){ %>
         <small>
-            <a href="/posts/destroy/<%= post.id %>">X</a>
+            <a class="delete-post-button" href="/posts/destroy/<%= post.id %>">X</a>
         </small>
         <% } %>
        <%= post.content %>
