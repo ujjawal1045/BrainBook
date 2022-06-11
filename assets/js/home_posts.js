@@ -16,7 +16,18 @@
                     let newPost = newPostDom(data.data.post);
                     $('#Posts-list-container>ul').prepend(newPost);
                     deletePost($(' .delete-post-button ', newPost));
-                    // console.log(data);
+
+                    //calling create comment class
+                    new PostComments(data.data.post._id);
+
+                    new Noty({
+                        theme: 'relax',
+                        text: "Post publisheddddd!",
+                        type: 'success',
+                        layout: 'topRight',
+                        timeout: 1500
+                    }).show();
+                     //console.log(data);
                 }, error: function(error){
                     console.log(error.responseText);
                 }
@@ -93,11 +104,34 @@ let deletePost = function(deleteLink){
             url: $(deleteLink).prop('href'),
             success: function(data){
                 $(`#post-${data.data.post_id}`).remove();
+                new Noty({
+                    theme: 'relax',
+                    text: "Post deleteddddd!",
+                    type: 'success',
+                    layout: 'topRight',
+                    timeout: 1500
+                }).show();
             },error: function(error){
                 console.log(error.responseText);
             }
         });
     });
 }
+
+
+
+// loop over all the existing post on the page
+let convertPostsToAjax = function(){
+    $('#Posts-list-container>ul>li').each(function(){
+        let self = $(this);
+        let deleteButton = $(' .delete-post-button', self);
+        deletePost(deleteButton);
+
+        //get the post id by splitting id atribute
+        let postId = self.prop('id').split("-")[1]
+        new PostComments(postId);
+    });
+}
     createPost();
+    convertPostsToAjax();
 }
