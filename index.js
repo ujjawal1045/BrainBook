@@ -37,6 +37,8 @@ app.use(express.urlencoded());
 app.use(cookieParser());
 //06//tell app to use static file 
 app.use(express.static('./assets'));
+//21//using path of profile picture(making upload path available to browser)
+app.use('/uploads', express.static(__dirname + '/uploads'));
 
 //05//tell app to use layout
 app.use(expressLayouts);
