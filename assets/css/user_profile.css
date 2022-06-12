@@ -1,15 +1,12 @@
 body {
   background-color: cyan; }
 
+.dp {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden; }
 
-.dp{
-    width:404px;
-    height:440px;
-    border-radius: 50%;
-    overflow:hidden;
-}
-
- .dp > img{
-    width:100%;
-    cursor:pointer;
-}
+.dp > img {
+  width: 100%;
+  cursor: pointer; }
