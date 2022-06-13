@@ -27,7 +27,7 @@
                                         <%= profile_user.name %>
                                     </h5>
                                     <h6>
-                                        Web Developer and Designer
+                                        <%= profile_user.profession %>
                                     </h6>
                                     <p class="proile-rating">RANKINGS : <span>8/10</span></p>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -60,6 +60,10 @@
                             <p><input type="email" name="email" placeholder="Your email..." value="<%= profile_user.email %>" required ></p>
                             
                             <p><input type="file" name = "avatar" placeholder="Profile Picture"></p>
+
+                            <p><input type="text" name = "profession" placeholder="Occupation"></p>
+
+                            <p><input type="text" name = "phone" placeholder="Phone"></p>
                             
                             <p><input type="submit" value="Update"></p>
 
@@ -103,7 +107,7 @@
                                                 <label>Phone</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>123 456 7890</p>
+                                                <p><%= profile_user.phone %></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -111,7 +115,7 @@
                                                 <label>Profession</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Web Developer and Designer</p>
+                                                <p><%= profile_user.profession %></p>
                                             </div>
                                         </div>
                             </div>

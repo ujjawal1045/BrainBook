@@ -31,6 +31,8 @@ module.exports.update =  async function(req, res) {
                 if(err){console.log('******multer error*****', err)}
                 user.name = req.body.name;
                 user.email = req.body.email;
+                user.profession = req.body.profession;
+                user.phone = req.body.phone;
                 if(req.file){
 
                     if(user.avatar){

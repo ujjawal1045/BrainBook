@@ -21,8 +21,12 @@ const userSchema = new mongoose.Schema({
         type: String,
 
     },
-    about: {
+    phone: {
         type: String,
+    },
+
+    profession: {
+        type: String
     }
     
 }, {

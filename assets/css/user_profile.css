@@ -1,4 +1,4 @@
-/* body {
+body {
   background-color: cyan; }
 
 .dp {
@@ -9,13 +9,10 @@
 
 .dp > img {
   width: 100%;
-  cursor: pointer; } */
+  cursor: pointer; }
 
 body {
- 
-  background: -webkit-linear-gradient(left, #3931af, #00c6ff);
-
- }
+  background: -webkit-linear-gradient(left, #3931af, #00c6ff); }
 
 .emp-profile {
   padding: 3%;
@@ -25,16 +22,11 @@ body {
   background: #fff; }
 
 .profile-img {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  overflow: hidden;
- }
+  text-align: center; }
 
 .profile-img img {
-  width: 100%;
-  cursor: pointer;
-}
+  width: 70%;
+  height: 100%; }
 
 .profile-img .file {
   position: relative;
