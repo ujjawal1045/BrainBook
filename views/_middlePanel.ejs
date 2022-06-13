@@ -3,7 +3,8 @@
         <img src="<%= user.avatar %>" alt="<%= user.name %>">
     </div>
     <form action="/posts/create" id="new-post-form" method="post">
-        <input name="content" placeholder = "What's on your mind, <%= locals.user.name %> ?">
+        <!-- <input name="content" placeholder = "What's on your mind, <%= locals.user.name %> ?"> -->
+        <textarea class="textarea" name="content" placeholder = "What's on your mind, <%= locals.user.name %> ?"  id="" rows="1" cols="45"></textarea>
         <input type="submit" value="Post">
 </form>
 </div>
