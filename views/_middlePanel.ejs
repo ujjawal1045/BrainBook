@@ -1,6 +1,6 @@
 <div class="post-top">
     <div class="dp">
-        <img src="ujjawal.jpeg" alt="">
+        <img src="<%= user.avatar %>" alt="<%= user.name %>">
     </div>
     <form action="/posts/create" id="new-post-form" method="post">
         <input name="content" placeholder = "What's on your mind, <%= locals.user.name %> ?">

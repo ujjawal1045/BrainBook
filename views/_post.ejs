@@ -1,7 +1,7 @@
 <li id="post-<%= post._id %>">
     <div class="post-top">
        <div class="dp">
-           <img src="./images/girl.jpg" alt="">
+        <img src="<%= post.user.avatar %>" alt="<%= post.user.name %>">
        </div>
        <div class="post-info">
            <p class="name"><%= post.user.name  %></p>

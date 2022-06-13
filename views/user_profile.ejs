@@ -35,13 +35,14 @@
                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#editButon" role="tab" aria-controls="profile" aria-selected="false">Edit</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <input type="submit" class="profile-edit-btn" href = "#editButon" name="btnAddMore" value="Edit Profile"/>
+                
                     </div>
                 </div>
                 <div class="row">
@@ -54,20 +55,7 @@
                             <a href="">WooCommerce</a><br/>
                             <a href="">PHP, .Net</a><br/>
                             <% if(user.id == profile_user.id) { %>
-                            <div id="editButon">
-                                <p><input type="text" name="name" placeholder="Your Name..." value="<%= profile_user.name %>" required></p>
-                            
-                            <p><input type="email" name="email" placeholder="Your email..." value="<%= profile_user.email %>" required ></p>
-                            
-                            <p><input type="file" name = "avatar" placeholder="Profile Picture"></p>
-
-                            <p><input type="text" name = "profession" placeholder="Occupation"></p>
-
-                            <p><input type="text" name = "phone" placeholder="Phone"></p>
-                            
-                            <p><input type="submit" value="Update"></p>
-
-                            </div>
+                            <p>Welcome! <%= user.name %> to your Profile page, You can edit your details by going through Edit section</p>
                             <% } else { %>
                                 <p>Oops! you don't have access to edit profile of <%= profile_user.name%></p>
                                 <% }  %>
@@ -118,54 +106,24 @@
                                                 <p><%= profile_user.profession %></p>
                                             </div>
                                         </div>
+                                        
                             </div>
-                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Experience</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>Expert</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Hourly Rate</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>10$/hr</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Total Projects</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>230</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>English Level</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>Expert</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Availability</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>6 months</p>
-                                            </div>
-                                        </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <label>Your Bio</label><br/>
-                                        <p>Your detail description</p>
-                                    </div>
-                                </div>
+                            <div class="tab-pane fade" id="editButon" role="tabpanel" aria-labelledby="profile-tab">
+                                <% if(user.id == profile_user.id) { %>
+                                    <p><input type="text" name="name" placeholder="Your Name..." value="<%= profile_user.name %>" required></p>
+                                
+                                <p><input type="email" name="email" placeholder="Your email..." value="<%= profile_user.email %>" required ></p>
+                                
+                                <p><input type="file" name = "avatar" placeholder="Profile Picture"></p>
+    
+                                <p><input type="text" name = "profession" placeholder="Occupation" value="<%= profile_user.profession %>" required></p>
+    
+                                <p><input type="text" name = "phone" placeholder="Phone" value="<%= profile_user.phone %>" required></p>
+                                
+                                <p><input type="submit" value="Update"></p>
+                                    <% } else { %>
+                                        <p>Oops! you don't have access to edit profile of <%= profile_user.name%></p>
+                                        <% }  %>
                             </div>
                         </div>
                     </div>
