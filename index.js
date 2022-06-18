@@ -13,7 +13,8 @@ const session = require('express-session');
 //12//use for session cookie
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
-
+//22//passport jwt for api authentication
+const passportJWT = require('./config/passport-jwt-strategy');
 //15//using mongo-store to store session cookie even if we restart the server
 const MongoStore = require('connect-mongo');
 
