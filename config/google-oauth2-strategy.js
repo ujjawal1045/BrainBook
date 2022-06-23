@@ -26,7 +26,7 @@ passport.use(new googleStrategy ({
                //used crypto to generate password for new user
                User.create({
                    name: profile.displayName,
-                   email: profile.emails[0],
+                   email: profile.emails[0].value,
                    password: crypto.randomBytes(20).toString('hex')
                }, function(err, user) {
                 if(err) {

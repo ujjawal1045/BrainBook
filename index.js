@@ -15,6 +15,8 @@ const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 //22//passport jwt for api authentication
 const passportJWT = require('./config/passport-jwt-strategy');
+//23//google oauth for verification
+const passportGoogle = require('./config/google-oauth2-strategy');
 //15//using mongo-store to store session cookie even if we restart the server
 const MongoStore = require('connect-mongo');
 
