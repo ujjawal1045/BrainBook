@@ -23,7 +23,7 @@ let renderTemplate = (data, relativePath) => {
         data,
         function(err, template) {
             if(err) {
-                console.log('err in rendering template');
+                console.log('err in rendering template',err);
                 return
             }
 
